@@ -1,5 +1,7 @@
 const api = "https://flagcdn.com/192x144";
 
+let correctCountryName = "";
+
 // Define o ícone da página com a bandeira do Brasil
 $("head link[rel='icon']").attr("href", `${api}/${countries[26].code}.png`);
 
@@ -12,7 +14,22 @@ function randomInt(min, max) {
 
 function firstQuestion() {
   const correctCountry = generateOptions();
+  correctCountryName = correctCountry.name;
   generateFlag(correctCountry);
+}
+
+function optionsEvent() {
+  $(".option-button").on("click", function () {
+
+    if ($(this).text() === correctCountryName) {
+      $(this).removeClass("btn-primary").addClass("btn-success");
+    } else {
+      $(this).removeClass("btn-primary").addClass("btn-danger");
+      $(`.option-button:contains(${correctCountryName})`).removeClass("btn-primary").addClass("btn-success");
+    }
+
+    $(".option-button").off("click");
+  })
 }
 
 // Gera as opções e a bandeira da primeira pergunta
@@ -44,3 +61,4 @@ function generateFlag(country) {
 }
 
 firstQuestion();
+optionsEvent();
