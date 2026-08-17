@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: oklch(94.5% 0.129 101.54);
 
   #options-container {
     display: grid;
