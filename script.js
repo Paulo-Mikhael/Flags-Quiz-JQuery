@@ -15,7 +15,7 @@ function options() {
   for (let i = 0; i < 8; i++) {
     const randomIndex = randomInt(0, countriesArray.length - 1);
     const optionElement = $("<li>").addClass("option");
-    const buttonElement = $("<button>").addClass("option-button").text(countriesArray[randomIndex].name);
+    const buttonElement = $("<button>").addClass("option-button btn btn-primary").text(countriesArray[randomIndex].name);
     $(optionElement).append(buttonElement);
     $("#options-container").append(optionElement);
 
